@@ -93,7 +93,7 @@ namespace Api.Controllers
 
                 if (_customerRepository.GetByEmail(emailOrError.Value) != null)
                 {
-                    return BadRequest("Email is already in use: " + item.Email);
+                    return BadRequest($"Email is already in use: {item.Email}");
                 }
 
                 var customer = new Customer
@@ -164,7 +164,7 @@ namespace Api.Controllers
                     return BadRequest("Invalid customer id: " + id);
                 }
 
-                if (customer.PurchasedMovies.Any(x => x.MovieId == movie.Id && (x.ExpirationDate == null || x.ExpirationDate.Value >= DateTime.UtcNow)))
+                if (customer.PurchasedMovies.Any(x => x.MovieId == movie.Id && !x.ExpirationDate.IsExpired))
                 {
                     return BadRequest("The movie is already purchased: " + movie.Name);
                 }
@@ -193,7 +193,7 @@ namespace Api.Controllers
                     return BadRequest("Invalid customer id: " + id);
                 }
 
-                if (customer.Status == CustomerStatus.Advanced && (customer.StatusExpirationDate == null || customer.StatusExpirationDate.Value < DateTime.UtcNow))
+                if (customer.Status == CustomerStatus.Advanced && !customer.StatusExpirationDate.IsExpired)
                 {
                     return BadRequest("The customer already has the Advanced status");
                 }

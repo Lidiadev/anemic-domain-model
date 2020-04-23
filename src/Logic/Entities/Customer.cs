@@ -21,7 +21,12 @@ namespace Logic.Entities
 
         public virtual CustomerStatus Status { get; set; }
 
-        public virtual DateTime? StatusExpirationDate { get; set; }
+        private DateTime? _statusExpirationDate;
+        public virtual ExpirationDate StatusExpirationDate 
+        {
+            get => (ExpirationDate)_statusExpirationDate;
+            set => _statusExpirationDate = value;
+        }
 
         private decimal _moneySpent;
         public virtual Dollars MoneySpent
