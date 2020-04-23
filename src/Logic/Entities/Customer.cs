@@ -23,7 +23,12 @@ namespace Logic.Entities
 
         public virtual DateTime? StatusExpirationDate { get; set; }
 
-        public virtual decimal MoneySpent { get; set; }
+        private decimal _moneySpent;
+        public virtual Dollars MoneySpent
+        {
+            get => Dollars.Of(_moneySpent);
+            set => _moneySpent = value;
+        }
 
         public virtual IList<PurchasedMovie> PurchasedMovies { get; set; }
     }
