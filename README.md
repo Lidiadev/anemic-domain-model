@@ -1,4 +1,4 @@
-# From anemic to a rich domain model 
+# From anemic to a rich domain model (Work in progress) 
 
 A sample application on how to change the Domain Model from anemic to a rich one.
 
