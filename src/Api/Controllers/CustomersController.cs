@@ -96,14 +96,7 @@ namespace Api.Controllers
                     return BadRequest($"Email is already in use: {item.Email}");
                 }
 
-                var customer = new Customer
-                {
-                    Name = customerNameOrError.Value,
-                    Email = emailOrError.Value,
-                    Status = CustomerStatus.Regular,
-                    MoneySpent = Dollars.Of(0),
-                    StatusExpirationDate = null
-                };
+                var customer = new Customer(customerNameOrError.Value, emailOrError.Value);
 
                 _customerRepository.Add(customer);
                 _customerRepository.SaveChanges();
