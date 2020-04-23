@@ -1,16 +1,13 @@
 using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using Newtonsoft.Json;
-using Newtonsoft.Json.Converters;
 
 namespace Logic.Entities
 {
     public class Customer : Entity
     {
-        public virtual string Name { get; set; }
+        public virtual CustomerName Name { get; set; }
 
-        public virtual string Email { get; set; }
+        public virtual Email Email { get; set; }
 
         public virtual CustomerStatus Status { get; set; }
 
