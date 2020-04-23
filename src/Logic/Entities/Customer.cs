@@ -5,9 +5,19 @@ namespace Logic.Entities
 {
     public class Customer : Entity
     {
-        public virtual CustomerName Name { get; set; }
+        private string _name;  
+        public virtual CustomerName Name 
+        {
+            get => (CustomerName)_name;
+            set => _name = value; 
+        }
 
-        public virtual Email Email { get; set; }
+        private string _email;
+        public virtual Email Email
+        {
+            get => (Email)_email;
+            set => _email = value;
+        }
 
         public virtual CustomerStatus Status { get; set; }
 
