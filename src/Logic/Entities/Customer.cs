@@ -17,17 +17,10 @@ namespace Logic.Entities
         public virtual Email Email
         {
             get => (Email)_email;
-            set => _email = value;
+            protected set => _email = value;
         }
 
-        public virtual CustomerStatus Status { get; set; }
-
-        private DateTime? _statusExpirationDate;
-        public virtual ExpirationDate StatusExpirationDate 
-        {
-            get => (ExpirationDate)_statusExpirationDate;
-            set => _statusExpirationDate = value;
-        }
+       public virtual CustomerStatus Status { get; set; }
 
         private decimal _moneySpent;
         public virtual Dollars MoneySpent
@@ -51,11 +44,19 @@ namespace Logic.Entities
 
             Status = CustomerStatus.Regular;
             MoneySpent = Dollars.Of(0);
-            StatusExpirationDate = null;
         }
 
-        public virtual void AddPurchasedMovie(PurchasedMovie purchasedMovie, Dollars price)
+        public virtual void AddPurchasedMovie(Movie movie, ExpirationDate expirationDate, Dollars price)
         {
+            var purchasedMovie = new PurchasedMovie
+            {
+                MovieId = movie.Id,
+                CustomerId = Id,
+                ExpirationDate = expirationDate,
+                Price = price,
+                PurchaseDate = DateTime.UtcNow
+            };
+
             _purchasedMovies.Add(purchasedMovie);
             MoneySpent += price;
         }
