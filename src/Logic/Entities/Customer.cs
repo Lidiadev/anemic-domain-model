@@ -1,3 +1,4 @@
+using CSharpFunctionalExtensions;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -44,6 +45,9 @@ namespace Logic.Entities
 
         public virtual void PurchasedMovie(Movie movie)
         {
+            if (HasPurchasedMovie(movie))
+                throw new Exception($"The movie is already purchased: {movie.Name}.");
+
             ExpirationDate expirationDate = movie.GetExpirationDate();
             Dollars price = movie.CalculatePrice(Status);
 
@@ -53,20 +57,32 @@ namespace Logic.Entities
             MoneySpent += price;
         }
 
-        public virtual bool Promote()
+        public virtual void Promote()
         {
-            // at least 2 active movies during the last 30 days
-            if (PurchasedMovies.Count(x =>
-                x.ExpirationDate == ExpirationDate.Infinite || x.ExpirationDate.Date >= DateTime.UtcNow.AddDays(-30)) < 2)
-                return false;
-
-            // at least 100 dollars spent during the last year
-            if (PurchasedMovies.Where(x => x.PurchaseDate > DateTime.UtcNow.AddYears(-1)).Sum(x => x.Price) < 100m)
-                return false;
+            if (CanPromote().IsFailure)
+                throw new Exception("The customer cannot be promoted.");
 
             Status = Status.Promote();
+        }
 
-            return true;
+        public virtual Result CanPromote()
+        {
+            if (Status.IsAdvanced)
+                return Result.Failure("The customer already has the Advanced status.");
+
+            if (PurchasedMovies.Count(x =>
+                x.ExpirationDate == ExpirationDate.Infinite || x.ExpirationDate.Date >= DateTime.UtcNow.AddDays(-30)) < 2)
+                return Result.Failure("The customer has to have at least 2 active movies during the last 30 days.");
+
+            if (PurchasedMovies.Where(x => x.PurchaseDate > DateTime.UtcNow.AddYears(-1)).Sum(x => x.Price) < 100m)
+                return Result.Failure("The customer has to have at least 100 dollars spent during the last year.");
+
+            return Result.Ok();
+        }
+
+        public virtual bool HasPurchasedMovie(Movie movie)
+        {
+            return PurchasedMovies.Any(x => x.Movie == movie && !x.ExpirationDate.IsExpired);
         }
     }
 }
