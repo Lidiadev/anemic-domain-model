@@ -1,6 +1,8 @@
-﻿using System;
+﻿using Logic.Common;
+using Logic.Movies;
+using System;
 
-namespace Logic.Entities
+namespace Logic.Customers
 {
     public class PurchasedMovie : Entity
     {

@@ -1,14 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
+using Api.Controllers.Utils;
 using CSharpFunctionalExtensions;
-using Logic.Dtos;
-using Logic.Entities;
-using Logic.Repositories;
+using Logic.Customers;
+using Api.Customers;
+using Logic.Movies;
 using Logic.Utils;
 using Microsoft.AspNetCore.Mvc;
 
-namespace Api.Controllers
+namespace Api.Customers
 {
     [Route("api/[controller]")]
     public class CustomersController : BaseController

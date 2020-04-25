@@ -1,7 +1,7 @@
 ﻿using CSharpFunctionalExtensions;
 using System;
 
-namespace Logic.Entities
+namespace Logic.Customers
 {
     public class CustomerName : ValueObject<Email>
     {

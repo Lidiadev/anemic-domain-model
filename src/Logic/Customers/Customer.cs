@@ -1,9 +1,11 @@
 using CSharpFunctionalExtensions;
+using Logic.Common;
+using Logic.Movies;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace Logic.Entities
+namespace Logic.Customers
 {
     public class Customer : Entity
     {

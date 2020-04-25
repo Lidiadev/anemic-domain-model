@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace Logic.Dtos
+namespace Api.Customers
 {
     public class CustomerDto
     {

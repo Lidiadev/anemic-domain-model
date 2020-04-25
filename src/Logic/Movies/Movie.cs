@@ -1,6 +1,8 @@
-﻿using System;
+﻿using Logic.Common;
+using Logic.Customers;
+using System;
 
-namespace Logic.Entities
+namespace Logic.Movies
 {
     public abstract class Movie : Entity
     {

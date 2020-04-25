@@ -1,4 +1,6 @@
-﻿using Logic.Repositories;
+﻿using Api.Utils;
+using Logic.Customers;
+using Logic.Movies;
 using Logic.Utils;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.Configuration;

@@ -1,8 +1,7 @@
 using FluentNHibernate.Mapping;
-using Logic.Entities;
 using System;
 
-namespace Logic.Mappings
+namespace Logic.Customers
 {
     public class PurchasedMovieMap : ClassMap<PurchasedMovie>
     {
