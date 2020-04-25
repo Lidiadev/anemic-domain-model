@@ -1,4 +1,4 @@
-# From anemic to a rich domain model 
+# From an anemic to a rich domain model 
 
 A sample application on how to change the Domain Model from anemic to a rich, encapsulated one by:
 - decoupling the domain models from the data contracts
