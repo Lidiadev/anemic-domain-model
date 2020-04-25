@@ -6,6 +6,20 @@ A sample application on how to change the Domain Model from anemic to a rich, en
 - exposing the minumum mutable API possible
 - not allowing the model to reside in an invalid state (almost no public setters and fewer primitive types).
 
+### Drawbacks of an anemic domain model:
+- potential duplication
+- lack of encapsulation
+- discoverability of operations.
+
+### Advantages of an anemic domain model:
+- intuitive
+- better discoverability of operations
+- protecting the data integrity through encapsulation.
+
+### When an anemic domain model is applicable:
+- the project is simple
+- the project will not be developed for a long period of time.
+
 ### Branches
 
 - [Initial](https://github.com/Lidiadev/anemic-domain-model/tree/initial) - the `initial` branch shows the anemic domain model before refactoring.
