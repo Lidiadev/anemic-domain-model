@@ -6,6 +6,11 @@ A sample application on how to change the Domain Model from anemic to a rich, en
 - exposing the minumum mutable API possible
 - not allowing the model to reside in an invalid state (almost no public setters and fewer primitive types).
 
+### What are the symptoms of an anemic domain model:
+- keeping data and operations separately from each other 
+- classes with publicly accessible properties 
+- stateless services.
+
 ### Drawbacks of an anemic domain model:
 - potential duplication
 - lack of encapsulation
