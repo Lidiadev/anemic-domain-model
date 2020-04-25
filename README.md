@@ -4,7 +4,7 @@ A sample application on how to change the Domain Model from anemic to a rich, en
 - decoupling the domain models from the data contracts
 - pushing the domain logic from services down to domain entities and value objects
 - exposing the minumum mutable API possible
-- not allowing the model to reside in an invalid state (almost no public setters and fewer primitive types).
+- not allowing the model to reside in an invalid state (by having almost no public setters and fewer primitive types).
 
 ### What are the symptoms of an anemic domain model:
 - keeping data and operations separately from each other 
