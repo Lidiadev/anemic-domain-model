@@ -16,7 +16,7 @@ A sample application on how to change the Domain Model from anemic to a rich, en
 - lack of encapsulation
 - discoverability of operations.
 
-### Advantages of an anemic domain model:
+### Advantages of a rich domain model:
 - intuitive
 - better discoverability of operations
 - protecting the data integrity through encapsulation.
