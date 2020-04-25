@@ -13,14 +13,10 @@ namespace Logic.Entities
             set => _name = value; 
         }
 
-        private string _email;
-        public virtual Email Email
-        {
-            get => (Email)_email;
-            protected set => _email = value;
-        }
+        private readonly string _email;
+        public virtual Email Email => (Email)_email;
 
-       public virtual CustomerStatus Status { get; set; }
+        public virtual CustomerStatus Status { get; protected set; }
 
         private decimal _moneySpent;
         public virtual Dollars MoneySpent
