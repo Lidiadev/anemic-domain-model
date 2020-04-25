@@ -122,7 +122,7 @@ namespace Api.Controllers
                 Customer customer = _customerRepository.GetById(id);
                 if (customer == null)
                 {
-                    return BadRequest("Invalid customer id: " + id);
+                    return BadRequest($"Invalid customer id: {id}");
                 }
 
                 customer.Name = customerNameOrError.Value;
@@ -145,18 +145,18 @@ namespace Api.Controllers
                 Movie movie = _movieRepository.GetById(movieId);
                 if (movie == null)
                 {
-                    return BadRequest("Invalid movie id: " + movieId);
+                    return BadRequest($"Invalid movie id: {movieId}");
                 }
 
                 Customer customer = _customerRepository.GetById(id);
                 if (customer == null)
                 {
-                    return BadRequest("Invalid customer id: " + id);
+                    return BadRequest($"Invalid customer id: {id}");
                 }
 
                 if (customer.PurchasedMovies.Any(x => x.Movie.Id == movie.Id && !x.ExpirationDate.IsExpired))
                 {
-                    return BadRequest("The movie is already purchased: " + movie.Name);
+                    return BadRequest($"The movie is already purchased: {movie.Name}");
                 }
 
                 customer.PurchasedMovie(movie);
@@ -180,7 +180,7 @@ namespace Api.Controllers
                 Customer customer = _customerRepository.GetById(id);
                 if (customer == null)
                 {
-                    return BadRequest("Invalid customer id: " + id);
+                    return BadRequest($"Invalid customer id: {id}");
                 }
 
                 if (customer.Status.IsAdvanced)
