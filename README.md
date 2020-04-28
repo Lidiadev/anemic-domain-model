@@ -25,6 +25,21 @@ A sample application on how to change the Domain Model from anemic to a rich, en
 - the project is simple
 - the project will not be developed for a long period of time.
 
+### Project Details
+
+The sample project is an API for an online theater with the following features:
+- create a customer
+- update a customer
+- purchase a movie
+- provide discounts
+- retrieve a list of all customers
+- retireve details about a customer.
+
+Technologies used:
+- .NET Core 2.0
+- .NET Framework 4.6.2
+- NHibernate.
+
 ### Branches
 
 - [Initial](https://github.com/Lidiadev/anemic-domain-model/tree/initial) - the `initial` branch shows the anemic domain model before refactoring.
